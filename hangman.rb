@@ -18,7 +18,7 @@ class Game
   end
 
   def valid_guess?(letter)
-    if !letter.match? /[a-zA-Z]/ || letter.length != 1
+    if !letter.match?(/[a-zA-Z]/) || letter.length != 1
       puts "Please enter a single letter."
       return false
     elsif @incorrect_letters.include?(letter)
@@ -69,7 +69,7 @@ class Game
 end
 
 def examine(input, game)
-  if input == "quit"
+  if input == "exit"
     exit
   elsif input == "save"
     save(game)
@@ -126,7 +126,7 @@ def start_playing
   elsif input == 'old'
     puts "Which game do you want to open?"
     play(retrieve_game)
-  elsif input == 'quit'
+  elsif input == 'exit'
     exit
   else
     puts "Please enter 'old' or 'new'"
@@ -150,7 +150,7 @@ def retrieve_game
   if File.exist? (file_name)
     dump = File.open(file_name, "r")
     YAML.load(dump)
-  elsif game_name == "quit"
+  elsif game_name == "exit"
     exit
   else
     puts "Please enter a valid game name"
@@ -173,7 +173,7 @@ def another_game
 end
 
 puts "Welcome to Hangman!"
-puts "At any time, enter 'quit' to exit the game, or 'save' to save the game and come back later."
+puts "At any time, enter 'exit' to exit the game, or 'save' to save the game and come back later."
 puts "Enter 'new' to begin a new game. Enter 'old' to open a previously saved game."
 
 start_playing
