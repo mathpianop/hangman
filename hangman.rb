@@ -37,9 +37,13 @@ class Game
     if @word_array.include?(letter)
       add_correct_letters(letter)
     else
-      puts "Sorry, the word does not contain an '#{letter}'! That trapdoor is looking unstable... "
       @body_parts_left -= 1
       @incorrect_letters.push(letter)
+      if @body_parts_left == 1
+        puts "Sorry, the word does not contain an '#{letter}'! That trapdoor is looking unstable... "
+      else
+        puts "Sorry, the word does not contain an '#{letter}'!"
+      end
     end
   end
 
