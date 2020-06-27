@@ -1,0 +1,18 @@
+--- !ruby/object:Game
+word_array:
+- n
+- o
+- n
+- f
+- a
+- t
+body_parts_left: 5
+display:
+- _
+- _
+- _
+- f
+- a
+- _
+incorrect_letters:
+- d
