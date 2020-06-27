@@ -113,6 +113,9 @@ def play(game)
   elsif game.word_spelled?
     puts "Congratulations! It seems there was a gubernatorial pardon."
   end
+
+  puts "Another game?"
+  another_game
 end
 
 def start_playing
@@ -155,9 +158,23 @@ def retrieve_game
   end
 end
 
+def another_game
+  answer = gets.chomp
+  if answer == "yes"
+    puts "Enter 'new' to begin a new game. Enter 'old' to open a previously saved game."
+    start_playing
+  elsif answer == "no"
+    puts "Bye for now."
+    exit
+  else
+    puts "Please enter 'yes' or 'no'"
+    another_game
+  end
+end
+
 puts "Welcome to Hangman!"
-puts "At any time, enter 'quit' to exit the game, or 'save' to save the game and come back later"
-puts "Enter 'new' to begin a new game. Enter 'old' to open a previously saved game"
+puts "At any time, enter 'quit' to exit the game, or 'save' to save the game and come back later."
+puts "Enter 'new' to begin a new game. Enter 'old' to open a previously saved game."
 
 start_playing
 
